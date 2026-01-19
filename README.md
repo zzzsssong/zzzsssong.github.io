@@ -1,4 +1,3 @@
-# zzzsssong.github.io
 ![School Header](C:/Users/Administrator/.gemini/antigravity/brain/317fc2fe-c39a-45af-8365-b1e2da655cfa/school_header_1768658641181.png)
 
 # 🏫 [3학년 2반] 알림장
