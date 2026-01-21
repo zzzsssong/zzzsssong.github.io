@@ -3,90 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2-6 이야기 - 꿈이 자라나는 우리 교실</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <title>누구나 즐기는 수학여행</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 </head>
 <body>
     <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">2-6 이야기</a>
-            <ul class="nav-links">
-                <li><a href="#">홈</a></li>
-                <li><a href="https://www.notion.so/2ed661a44b6080d3983cd37e734b8ccb?source=copy_link" target="_blank">알림장</a></li>
-                <li><a href="https://docs.google.com/spreadsheets/d/1EKVcVmstfMzlEyitPG873u75xvjyNJ7yY4mGBSg0HR4/edit?usp=sharing" target="_blank">각종 출결 서류</a></li>
-                <li><a href="#">활동 사진</a></li>
-            </ul>
-        </div>
+        <div class="nav-logo">♿ 누구나 즐기는 수학여행</div>
+        <ul class="nav-menu">
+            <li><a href="#home">홈</a></li>
+            <li><a href="#search-section">장소 찾기</a></li>
+            <li><a href="#past-courses">추천 코스</a></li>
+            <li><a href="#wishlist">장소 제안</a></li>
+        </ul>
     </nav>
 
-    <header class="hero">
-        <div class="container hero-content">
-            <h1>꿈이 자라나는<br>행복한 2학년 6반</h1>
-            <p>매일매일 새로운 배움과 즐거움이 가득한<br>우리 반의 이야기를 들려드립니다.</p>
-            <p>담임 교사 연락처<br>0508-4264-2117</p>
-            <a href="https://www.notion.so/2ed661a44b6080d3983cd37e734b8ccb?source=copy_link" class="btn-primary" target="_blank">알림장 바로가기</a>
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>우리의 수학여행은<br><span class="highlight">누구에게나 즐거워야 하니까!</span></h1>
+            <p>휠체어도, 유모차도 걱정 없이. 모두가 함께 행복한 추억을 만들 수 있는<br>전국의 배리어프리 수학여행 장소를 찾아보세요.</p>
+            <a href="#search-section" class="cta-btn">지금 찾아보기</a>
         </div>
     </header>
 
-    <section class="compliments">
-        <div class="container">
-            <div class="compliment-box">
-                <div class="compliment-header">
-                    <h2 class="section-title">이번 주의 칭찬 주인공</h2>
-                </div>
-                
-<div class="compliment-content">
-                <div class="compliment-card">
-                    <div class="compliment-image-container">
-                        <img src="student.jpg" alt="칭찬 주인공 사진" class="compliment-img">
-                    </div>
-                    
-                    <div class="compliment-text">
-                        <h3>"급식 시간에 친구들을 도와준 김철수 학생을 칭찬합니다!"</h3>
-                        <p>정리 정돈을 어려워하는 친구를 위해 먼저 다가가 손을 내밀어준 따뜻한 마음이 우리 반을 더욱 행복하게 만들었어요.</p>
-                    </div>
-                </div>
-            </div>
-
-                <div class="compliment-footer">
-                    <p>우리 반 친구들의 멋진 모습을 선생님에게 알려주세요!</p>
-
-                    <a href="#" class="btn-secondary">칭찬 한마디 남기기</a>
-                </div>
+    <section id="search-section" class="section">
+        <div class="section-title">
+            <h2>🔍 수학여행 장소 찾아보기</h2>
+            <p>가고 싶은 지역과 테마를 선택해 보세요.</p>
+        </div>
+        <div class="search-container">
+            <div class="search-inner">
+                <div class="filter-box"><label>지역</label><select id="sidoSelect" onchange="updateGugun()"><option value="">시/도 선택</option></select></div>
+                <div class="filter-box"><label>상세 지역</label><select id="gugunSelect"><option value="">시/군/구 선택</option></select></div>
+                <div class="filter-box"><label>장소 유형</label><select id="cat1Select"><option value="">전체 유형</option></select></div>
+                <button onclick="searchPlaces()" class="main-btn">검색하기</button>
             </div>
         </div>
+        <div id="result-status"></div>
+        <div id="info-list"></div>
     </section>
-    
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">우리 반의 목표</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon">🌱</div>
-                    <h3>스스로 배우는 학생</h3>
-                    <p>자신의 생각과 질문을 소중히 여기며,<br>매일 배움을 실천합니다.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🤝</div>
-                    <h3>서로 돕는 친구</h3>
-                    <p>친구의 마음을 이해하고 배려하며,<br>따뜻한 우정을 나눕니다.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">✨</div>
-                    <h3>꿈을 키우는 교실</h3>
-                    <p>다양한 경험을 통해 나만의 재능을 찾고<br>미래의 꿈을 키워갑니다.</p>
-                </div>
+
+    <section id="past-courses" class="section bg-light">
+        <div class="section-title">
+            <h2>📜 추천 수학여행 코스</h2>
+            <p>이미 다녀온 선배들이 추천하는 베스트 루트입니다.</p>
+        </div>
+        <div class="course-grid">
+            <div class="course-card">
+                <div class="course-img">📸</div>
+                <div class="course-info"><h3>[서울] 역사 전통 탐방</h3><p>경복궁 - 국립중앙박물관 - 남산타워</p></div>
+            </div>
+            <div class="course-card">
+                <div class="course-img">🌊</div>
+                <div class="course-info"><h3>[부산] 바다 향기 코스</h3><p>해운대 - 해동용궁사 - 광안리</p></div>
+            </div>
+            <div class="course-card">
+                <div class="course-img">🌳</div>
+                <div class="course-info"><h3>[경주] 신라의 달밤</h3><p>불국사 - 안압지 - 황리단길</p></div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 2-6 이야기. All rights reserved.</p>
+    <section id="wishlist" class="section">
+        <div class="section-title">
+            <h2>📝 가고 싶은 곳 제안하기</h2>
+            <p>파일에 없지만 모두가 즐길 수 있는 꼭 가고 싶은 장소가 있나요?</p>
         </div>
+        <div class="form-container">
+            <div class="form-group">
+                <label>장소 이름</label>
+                <input type="text" placeholder="예: 우리 학교 앞 미술관">
+            </div>
+            <div class="form-group">
+                <label>추천 이유</label>
+                <textarea rows="4" placeholder="학생들이 좋아할 만한 이유를 적어주세요."></textarea>
+            </div>
+            <button class="main-btn" onclick="alert('여러분의 소중한 의견이 제출되었습니다!')">의견 보내기</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 누구나 즐기는 수학여행. 모든 학생의 즐거운 추억을 응원합니다.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
