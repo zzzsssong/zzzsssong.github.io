@@ -151,7 +151,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* 칭찬 섹션 (사진 제거 및 리뉴얼) */
+/* 칭찬 섹션 리뉴얼 스타일 */
 .compliments {
     padding: 80px 0;
     background-color: #f8fbff;
@@ -161,50 +161,66 @@ body {
     background: white;
     padding: 50px 30px;
     border-radius: 30px;
-    box-shadow: var(--card-shadow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     text-align: center;
-    position: relative;
-    overflow: hidden;
+    border: 1px solid #eef2f6;
 }
 
-.compliment-box .badge {
+.compliment-header .badge {
     background: #ffd700;
-    padding: 5px 15px;
-    border-radius: 20px;
+    color: #333;
+    padding: 8px 20px;
+    border-radius: 25px;
     font-weight: bold;
-    font-size: 0.85rem;
-    margin-bottom: 15px;
+    font-size: 1rem;
     display: inline-block;
+    margin-bottom: 25px;
 }
-
-.compliment-quote {
-    max-width: 700px;
-    margin: 40px auto;
-    position: relative;
-    padding: 20px;
-}
-
-.quote-icon, .quote-icon-end {
-    font-family: Georgia, serif;
-    font-size: 4rem;
-    color: #d0e7ff;
-    line-height: 0;
-    position: absolute;
-}
-
-.quote-icon { top: 0; left: -20px; }
-.quote-icon-end { bottom: 0; right: -20px; transform: rotate(180deg); }
 
 .compliment-quote h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 1.8rem;
+    line-height: 1.4;
+    color: #222;
     margin-bottom: 20px;
-    color: #333;
+    word-break: keep-all;
 }
 
-.compliment-quote h3 strong {
-    color: var(--secondary-color);
-    border-bottom: 3px solid #b2ebf2;
+/* 이름 강조 효과 */
+.highlight {
+    color: #ff9f1c;
+    background: linear-gradient(to top, #fff3e0 40%, transparent 40%);
+    padding: 0 5px;
+}
+
+.compliment-quote p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.compliment-footer {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px dashed #ddd;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #6c757d;
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+    transform: translateY(-2px);
 }
 
 /* Features */
