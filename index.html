@@ -62,9 +62,8 @@
         .hero-text { flex: 1; }
         .hero-text h2 { font-family: 'Gowun Dodum', sans-serif; font-size: 2.2rem; margin: 0 0 10px; }
         .hero-text span { color: var(--school-blue); }
-        /* 선생님 연락처 스타일 */
         .teacher-contact {
-            margin-top: 25px; /* 소개 문구와의 여백 */
+            margin-top: 25px;
             padding-top: 15px;
             border-top: 1px dashed #eee;
             font-size: 0.95rem;
@@ -152,7 +151,7 @@
             box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
         }
 
-        /* 칭찬 카드 섹션 수정 */
+        /* 칭찬 카드 섹션 */
         .compliment-box {
             background: white;
             padding: 40px;
@@ -162,7 +161,6 @@
             position: relative;
         }
         
-        /* 칭찬 노션 폼 버튼 */
         .btn-compliment {
             display: inline-block;
             margin-top: 20px;
@@ -177,13 +175,24 @@
         }
         .btn-compliment:hover { background: #d35400; transform: translateY(-2px); }
 
+        /* 우리 반의 목표 그리드 설정 복구 */
+        .goals-section { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .goals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
+        .goal-item { text-align: center; padding: 20px; border-radius: 15px; background: #fdfdfd; border: 1px solid #eee; }
+
         /* 사이드바 */
         .sidebar { display: flex; flex-direction: column; gap: 25px; }
         .side-box { background: white; border-radius: 20px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         .side-box.orange { border-top: 6px solid var(--school-orange); }
         .side-box.pink { border-top: 6px solid var(--school-pink); }
+        .side-box.blue { border-top: 6px solid var(--school-blue); }
 
-        @media (max-width: 992px) { .main-wrapper { grid-template-columns: 1fr; } .hero-banner { flex-direction: column; text-align: center; } .schoolbell-bar { flex-direction: column; gap: 10px; } }
+        @media (max-width: 992px) { 
+            .main-wrapper { grid-template-columns: 1fr; } 
+            .hero-banner { flex-direction: column; text-align: center; } 
+            .schoolbell-bar { flex-direction: column; gap: 10px; }
+            .goals-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -233,35 +242,22 @@
                 </div>
             </div>
 
-           <div class="compliment-box">
+            <div class="compliment-box">
                 <span style="background:var(--school-orange); color:white; padding:4px 12px; border-radius:15px; font-size:0.8rem; font-weight:bold;">👏 칭찬 주인공</span>
                 <h3 style="font-family:'Gowun Dodum'; margin-top:15px;">"친구를 도와준 김철수 학생을 칭찬합니다!"</h3>
                 <p>정리 정돈을 어려워하는 친구를 위해 먼저 다가가 손을 내밀어준 따뜻한 마음이 우리 반을 더욱 행복하게 만들었어요.</p>
-                
-                <a href="https://changeable-shawl-d9a.notion.site/304661a44b6080d3a825f8a1f567ae70?pvs=105" target="_blank" class="btn-compliment">
-                    ✨ 우리 반 칭찬 주인공 추천하기
-                </a>
+                <a href="https://changeable-shawl-d9a.notion.site/304661a44b6080d3a825f8a1f567ae70?pvs=105" target="_blank" class="btn-compliment">✨ 우리 반 칭찬 주인공 추천하기</a>
             </div>
 
-           <div class="goals-section">
-    <h3 style="font-family:'Gowun Dodum'; margin:0 0 20px;">🌱 우리 반의 목표</h3>
-    <div class="goals-grid">
-        <div class="goal-item">
-            <h4>🌱 스스로 배우기</h4>
-            <p>매일 배움을 실천합니다.</p>
-        </div>
-        <div class="goal-item">
-            <h4>🤝 서로 돕기</h4>
-            <p>따뜻한 우정을 나눕니다.</p>
-        </div>
-        <div class="goal-item">
-            <h4>✨ 꿈 키우기</h4>
-            <p>나만의 재능을 찾습니다.</p>
-        </div>
-    </div>
-</div>
-
-        <aside class="sidebar">
+            <div class="goals-section">
+                <h3 style="font-family:'Gowun Dodum'; margin:0 0 20px;">🌱 우리 반의 목표</h3>
+                <div class="goals-grid">
+                    <div class="goal-item"><h4>🌱 스스로 배우기</h4><p>매일 배움을 실천합니다.</p></div>
+                    <div class="goal-item"><h4>🤝 서로 돕기</h4><p>따뜻한 우정을 나눕니다.</p></div>
+                    <div class="goal-item"><h4>✨ 꿈 키우기</h4><p>나만의 재능을 찾습니다.</p></div>
+                </div>
+            </div>
+        </section> <aside class="sidebar">
             <div class="side-box orange">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                     <h4 style="margin: 0;">📸 우리 반 사진첩</h4>
@@ -272,55 +268,27 @@
                 </div>
                 <p style="font-size: 0.8rem; color: #777; margin-top: 10px; text-align: center;">2-9반의 추억을 확인하세요! ✨</p>
             </div>
-            
-         <div class="side-box blue" style="border-top: 6px solid #3498db;">
-    <h4 style="margin-bottom: 15px;">🕒 우리 반 시간표</h4>
-    <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: center;">
-        <thead>
-            <tr style="background: #f8f9fa; border-bottom: 2px solid #eee;">
-                <th style="padding: 8px 4px;">교시</th>
-                <th style="padding: 8px 4px;">월</th>
-                <th style="padding: 8px 4px;">화</th>
-                <th style="padding: 8px 4px;">수</th>
-                <th style="padding: 8px 4px;">목</th>
-                <th style="padding: 8px 4px;">금</th>
-            </tr>
-        </thead>
-        <tbody style="color: #444;">
-            <tr style="border-bottom: 1px solid #f2f2f2;">
-                <td style="padding: 8px 2px; font-weight: bold; background: #fafafa;">1</td>
-                <td>과학A</td><td>도덕B</td><td>역사</td><td>과학A</td><td>과학B</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f2f2f2;">
-                <td style="padding: 8px 2px; font-weight: bold; background: #fafafa;">2</td>
-                <td>도덕A</td><td>역사</td><td>중국어</td><td>가정</td><td>수학</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f2f2f2;">
-                <td style="padding: 8px 2px; font-weight: bold; background: #fafafa;">3</td>
-                <td>체육</td><td>국어A</td><td>국어B</td><td>가정</td><td>국어A</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f2f2f2;">
-                <td style="padding: 8px 2px; font-weight: bold; background: #fafafa;">4</td>
-                <td>수학</td><td>영어A</td><td>스포츠</td><td>국어B</td><td>영어B</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f2f2f2;">
-                <td style="padding: 8px 2px; font-weight: bold; background: #fafafa;">5</td>
-                <td>음악</td><td>과학B</td><td>체육</td><td>영어A</td><td>체육</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f2f2f2;">
-                <td style="padding: 8px 2px; font-weight: bold; background: #fafafa;">6</td>
-                <td>자율</td><td>기술</td><td>수학</td><td>역사</td><td>도덕A</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px 2px; font-weight: bold; background: #fafafa;">7</td>
-                <td>-</td><td>수학</td><td>-</td><td>음악</td><td>-</td>
-            </tr>
-        </tbody>
-    </table>
-    <p style="font-size: 0.75rem; color: #999; margin-top: 10px; text-align: center;">
-        * 교실 상황에 따라 변경될 수 있습니다.
-    </p>
-</div>
+
+            <div class="side-box blue">
+                <h4 style="margin-bottom: 15px;">🕒 우리 반 시간표</h4>
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: center;">
+                    <thead>
+                        <tr style="background: #f8f9fa; border-bottom: 2px solid #eee;">
+                            <th>교시</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="font-weight:bold; background:#fafafa;">1</td><td>과학A</td><td>도덕B</td><td>역사</td><td>과학A</td><td>과학B</td></tr>
+                        <tr><td style="font-weight:bold; background:#fafafa;">2</td><td>도덕A</td><td>역사</td><td>중국어</td><td>가정</td><td>수학</td></tr>
+                        <tr><td style="font-weight:bold; background:#fafafa;">3</td><td>체육</td><td>국어A</td><td>국어B</td><td>가정</td><td>국어A</td></tr>
+                        <tr><td style="font-weight:bold; background:#fafafa;">4</td><td>수학</td><td>영어A</td><td>스포츠</td><td>국어B</td><td>영어B</td></tr>
+                        <tr><td style="font-weight:bold; background:#fafafa;">5</td><td>음악</td><td>과학B</td><td>체육</td><td>영어A</td><td>체육</td></tr>
+                        <tr><td style="font-weight:bold; background:#fafafa;">6</td><td>자율</td><td>기술</td><td>수학</td><td>역사</td><td>도덕A</td></tr>
+                        <tr><td style="font-weight:bold; background:#fafafa;">7</td><td>-</td><td>수학</td><td>-</td><td>음악</td><td>-</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="side-box pink">
                 <h4>📅 학사일정</h4>
                 <div style="overflow:hidden; border-radius:15px; border:1px solid #eee;">
