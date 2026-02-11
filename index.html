@@ -24,7 +24,6 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
 
-        /* 상단 네비게이션 - 모바일 고정 */
         .school-nav {
             background: var(--school-purple);
             padding: 12px 0;
@@ -40,7 +39,6 @@
         .nav-links { display: flex; list-style: none; gap: 15px; margin: 5px 0 0; padding: 0; }
         .nav-links a { color: white; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
 
-        /* 메인 레이아웃 */
         .main-wrapper {
             display: grid;
             grid-template-columns: 8fr 4fr;
@@ -51,7 +49,6 @@
 
         .content-area { display: flex; flex-direction: column; gap: 20px; }
 
-        /* 메인 배너 - 모바일에서 이미지 상단 배치 */
         .hero-banner {
             background: white;
             border-radius: 20px;
@@ -74,7 +71,6 @@
         }
         .hero-img { max-width: 300px; border-radius: 15px; margin-left: 20px; }
 
-        /* 학교종이 바로가기 바 */
         .schoolbell-bar {
             background: white;
             padding: 15px 25px;
@@ -95,10 +91,8 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9rem;
-            transition: 0.3s;
         }
 
-        /* 전달사항 카드 */
         .board-container { background: white; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; }
         .board-header { background: #f8f9fa; padding: 5px 20px; border-bottom: 1px solid #eee; }
         .tab-group button { padding: 15px 20px; border: none; background: none; font-weight: bold; color: var(--school-blue); border-bottom: 4px solid var(--school-blue); }
@@ -106,42 +100,34 @@
         .board-content li { padding: 15px 5px; border-bottom: 1px solid #f2f2f2; display: flex; justify-content: space-between; align-items: center; }
         .btn-notion { display: block; padding: 15px; background: var(--school-blue); color: white; border-radius: 12px; text-decoration: none; font-weight: bold; text-align: center; margin-top: 15px; }
 
-        /* 칭찬 카드 섹션 */
         .compliment-box { background: white; padding: 35px; border-radius: 20px; border-left: 12px solid var(--school-orange); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         .btn-compliment { display: block; margin-top: 15px; padding: 15px; background: var(--school-orange); color: white; border-radius: 12px; text-decoration: none; font-weight: bold; text-align: center; }
 
-        /* 우리 반의 목표 */
-        .goals-section { background: white; padding: 35px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .goals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
-        .goal-item { text-align: center; padding: 15px; border-radius: 15px; background: #fdfdfd; border: 1px solid #eee; }
-
-        /* 사이드바 박스 */
+        /* 사이드바 및 박스 공통 */
         .sidebar { display: flex; flex-direction: column; gap: 25px; }
         .side-box { background: white; border-radius: 20px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         .side-box.orange { border-top: 6px solid var(--school-orange); }
         .side-box.pink { border-top: 6px solid var(--school-pink); }
         .side-box.blue { border-top: 6px solid var(--school-blue); }
 
-        /* 시간표 테이블 */
         .timetable { width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: center; }
         .timetable th { background: #f8f9fa; padding: 8px 2px; border-bottom: 2px solid #eee; }
         .timetable td { padding: 8px 2px; border-bottom: 1px solid #f2f2f2; }
 
-        /* 푸터 */
+        /* 목표 그리드 설정 */
+        .goals-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
+        .goal-item { text-align: center; padding: 15px; border-radius: 15px; background: #fdfdfd; border: 1px solid #eee; }
+
         footer { text-align: center; padding: 30px; background: #333; color: #999; font-size: 0.85rem; }
 
-        /* 핵심: 모바일 미디어 쿼리 (스마트폰용 디자인) */
         @media (max-width: 768px) {
             .main-wrapper { grid-template-columns: 1fr; margin-top: 15px; }
             .hero-banner { flex-direction: column-reverse; text-align: center; padding: 25px; }
             .hero-img { max-width: 100%; margin: 0 0 20px 0; }
             .hero-text h2 { font-size: 1.6rem; }
             .schoolbell-bar { flex-direction: column; gap: 12px; text-align: center; }
-            .goals-grid { grid-template-columns: 1fr; }
             .board-content li { flex-direction: column; align-items: flex-start; gap: 5px; }
-            .nav-links { gap: 12px; }
             .nav-links a { font-size: 0.85rem; }
-            .side-box { padding: 20px; }
         }
     </style>
 </head>
@@ -195,33 +181,23 @@
                 <a href="https://changeable-shawl-d9a.notion.site/304661a44b6080d3a825f8a1f567ae70?pvs=105" target="_blank" class="btn-compliment">✨ 우리 반 칭찬 주인공 추천하기</a>
             </div>
 
-            <div class="goals-section">
-                <h3 style="font-family:'Gowun Dodum'; margin:0 0 20px;">🌱 우리 반의 목표</h3>
-                <div class="goals-grid">
-                    <div class="goal-item"><h4>🌱 주도성</h4><p>스스로 배움을 실천합니다.</p></div>
-                    <div class="goal-item"><h4>🤝 존중</h4><p>서로 우정을 나눕니다.</p></div>
-                    <div class="goal-item"><h4>✨ 진로</h4><p>흥미를 찾습니다.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <aside class="sidebar">
-            <div class="side-box orange">
+            <div class="side-box orange" style="box-shadow: none; border: 1px solid #eee;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                     <h4 style="margin: 0;">📸 우리 반 사진첩</h4>
                     <a href="https://padlet.com/emtiiy2/2026-2-9-yqks8inov9x0k2bv" target="_blank" style="font-size: 0.75rem; color: #888; text-decoration: none;">크게보기 〉</a>
                 </div>
-                <div style="overflow: hidden; border-radius: 15px; border: 1px solid #eee; background: #fff; height: 400px;">
+                <div style="overflow: hidden; border-radius: 15px; background: #fff; height: 450px;">
                     <iframe src="https://padlet.com/embed/yqks8inov9x0k2bv/slideshow?autoplay=1" frameborder="0" width="100%" height="100%" allow="camera;microphone;geolocation"></iframe>
                 </div>
+                <p style="font-size: 0.8rem; color: #777; margin-top: 10px; text-align: center;">아이들의 소중한 순간들을 확인하세요! ✨</p>
             </div>
+        </section>
 
+        <aside class="sidebar">
             <div class="side-box blue">
                 <h4 style="margin-bottom: 15px;">🕒 우리 반 시간표</h4>
                 <table class="timetable">
-                    <thead>
-                        <tr><th>교시</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th></tr>
-                    </thead>
+                    <thead><tr><th>교시</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th></tr></thead>
                     <tbody>
                         <tr><td style="font-weight:bold; background:#fafafa;">1</td><td>과학A</td><td>도덕B</td><td>역사</td><td>과학A</td><td>과학B</td></tr>
                         <tr><td style="font-weight:bold; background:#fafafa;">2</td><td>도덕A</td><td>역사</td><td>중국어</td><td>가정</td><td>수학</td></tr>
@@ -240,11 +216,18 @@
                     <iframe src="https://calendar.google.com/calendar/embed?src=emtiiy2%40gmail.com&ctz=Asia%2FSeoul" style="border:0" width="100%" height="300" frameborder="0" scrolling="no"></iframe>
                 </div>
             </div>
+
+            <div class="side-box orange">
+                <h4 style="margin-bottom: 15px;">🌱 우리 반의 목표</h4>
+                <div class="goals-grid">
+                    <div class="goal-item"><h4>🌱 스스로 배우기</h4><p>배움을 실천합니다.</p></div>
+                    <div class="goal-item"><h4>🤝 서로 돕기</h4><p>우정을 나눕니다.</p></div>
+                    <div class="goal-item"><h4>✨ 꿈 키우기</h4><p>재능을 찾습니다.</p></div>
+                </div>
+            </div>
         </aside>
     </main>
 
-    <footer>
-        &copy; 2026 2-9 이야기. All rights reserved.
-    </footer>
+    <footer>&copy; 2026 2-9 이야기. All rights reserved.</footer>
 </body>
 </html>
