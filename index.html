@@ -3,92 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2-9 이야기 - 꿈이 자라나는 우리 교실</title>
+    <title>2-9 이야기 - 행복한 배움터</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">2-9 이야기</a>
-            <ul class="nav-links">
-                <li><a href="#">홈</a></li>
-                <li><a href="https://www.notion.so/2ed661a44b6080d3983cd37e734b8ccb?source=copy_link" target="_blank">알림장</a></li>
-                <li><a href="https://padlet.com/emtiiy2/padlet-d64n0iunbj2ik1la" target="_blank">각종 서류</a></li>
-                <li><a href="#">활동 사진</a></li>
-            </ul>
+    <nav class="school-nav">
+        <div class="container">
+            <div class="top-links">
+                <a href="#">홈</a> | <a href="#">로그인</a> | <a href="#">사이트맵</a>
+            </div>
+            <div class="main-menu">
+                <a href="#" class="logo">2-9 이야기</a>
+                <ul class="nav-links">
+                    <li><a href="#">우리 반 안내</a></li>
+                    <li><a href="https://www.notion.so/2ed661a44b6080d3983cd37e734b8ccb?source=copy_link" target="_blank">알림마당</a></li>
+                    <li><a href="#">교육활동</a></li>
+                    <li><a href="https://padlet.com/emtiiy2/padlet-d64n0iunbj2ik1la" target="_blank">각종 서류</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="container hero-content">
-            <div class="hero-badge">Welcome to Class 2-9</div>
-            <h1>꿈이 자라나는<br>행복한 2학년 9반</h1>
-            <p>매일매일 새로운 배움과 즐거움이 가득한<br>우리 반의 이야기를 들려드립니다.</p>
+    <main class="container main-wrapper">
+        <section class="left-section">
+            <div class="main-visual">
+                <div class="visual-text">
+                    <h2>서로 손 잡고<br>꿈을 키우는 <span>행복한 2-9</span></h2>
+                    <p>우리 반의 따뜻한 이야기를 담는 공간입니다.</p>
+                </div>
+            </div>
+
+            <div class="board-container">
+                <div class="board-header">
+                    <button class="active">오늘의 알림</button>
+                    <button>가정통신문</button>
+                </div>
+                <div class="board-content">
+                    <ul>
+                        <li><span>[공지]</span> 내일 체육복과 개인 물통 챙겨오기 <small>2026.02.11</small></li>
+                        <li><span>[안내]</span> 1학기 방과후 학교 신청 안내 <small>2026.02.10</small></li>
+                        <li><span>[기타]</span> 2학년 9반 첫 학급 신문 발행 <small>2026.02.09</small></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="compliment-card-new">
+                <div class="tag">👏 2-9 칭찬 주인공</div>
+                <div class="quote-style">
+                    <h3>"친구를 도와준 <span class="student-name">김철수</span> 학생을 칭찬합니다!"</h3>
+                    <p>정리 정돈을 어려워하는 친구를 위해 먼저 다가가 손을 내밀어준 따뜻한 마음이 우리 9반을 더욱 행복하게 만들었어요.</p>
+                </div>
+                <a href="#" class="btn-mini">나도 칭찬 남기기</a>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="side-box orange">
+                <h4>💡 알림존</h4>
+                <div class="inner-box">우리 반 약속: 경청하기</div>
+            </div>
             
-            <div class="notice-box">
-                <div class="notice-title">💡 오늘의 알림</div>
-                <p>늦지않게 <strong>8시30분까지 교실로 등교</strong>하고 <strong>기초조사서</strong>를 꼭 챙겨오세요!</p>
-            </div>
-
-            <div class="hero-btns">
-                <a href="https://www.notion.so/2ed661a44b6080d3983cd37e734b8ccb?source=copy_link" class="btn-primary" target="_blank">알림장 바로가기</a>
-                <p class="teacher-contact">담임 선생님: 0508-4264-2117</p>
-            </div>
-        </div>
-    </header>
-
-    <section class="compliments">
-    <div class="container">
-        <div class="compliment-box">
-            <div class="compliment-header">
-                <span class="badge">👏 이번 주의 칭찬 주인공</span>
-            </div>
-            
-            <div class="compliment-content-new">
-                <div class="compliment-quote">
-                    <h3>"급식 시간에 친구들을 도와준 <span class="highlight">김철수</span> 학생을 칭찬합니다!"</h3>
-                    <p>정리 정돈을 어려워하는 친구를 위해 먼저 다가가 손을 내밀어준 따뜻한 마음이 우리 반을 더욱 행복하게 만들었어요.</p>
+            <div class="side-box pink">
+                <h4>📅 행사일정</h4>
+                <div class="calendar-placeholder">
+                    <p>2026. 02</p>
+                    <div class="cal-grid">
+                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                        <span>8</span><span>9</span><span>10</span><span class="today">11</span><span>12</span><span>13</span><span>14</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="compliment-footer">
-                <p>우리 반 친구들의 멋진 모습을 선생님에게 알려주세요!</p>
-                <a href="#" class="btn-secondary">칭찬 한마디 남기기</a>
+            <div class="side-box blue">
+                <h4>📞 선생님 연락처</h4>
+                <p>0508-4264-2117</p>
             </div>
-        </div>
-    </div>
-</section>
-    
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">우리 반의 목표</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon">🌱</div>
-                    <h3>스스로 배우는 학생</h3>
-                    <p>자신의 생각과 질문을 소중히 여기며,<br>매일 배움을 실천합니다.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🤝</div>
-                    <h3>서로 돕는 친구</h3>
-                    <p>친구의 마음을 이해하고 배려하며,<br>따뜻한 우정을 나눕니다.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">✨</div>
-                    <h3>꿈을 키우는 교실</h3>
-                    <p>다양한 경험을 통해 나만의 재능을 찾고<br>미래의 꿈을 키워갑니다.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </aside>
+    </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 2-6 이야기. 우리 아이들의 꿈을 응원합니다.</p>
-        </div>
+        <p>&copy; 2026 2-9 이야기. All rights reserved.</p>
     </footer>
 </body>
 </html>
