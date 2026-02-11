@@ -4,15 +4,246 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2-9 이야기 - 행복한 배움터</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS 시작 */
+        :root {
+            --school-purple: #8e44ad;
+            --school-blue: #3498db;
+            --school-orange: #f39c12;
+            --school-pink: #e91e63;
+            --bg-gray: #f4f7f9;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-gray);
+            margin: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 상단 네비게이션 - 로그인/홈 삭제 버전 */
+        .school-nav {
+            background: var(--school-purple);
+            padding: 15px 0;
+            color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Gowun Dodum', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* 레이아웃 구조 */
+        .main-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            margin-top: 30px;
+            padding-bottom: 50px;
+        }
+
+        /* 왼쪽 콘텐츠 */
+        .main-visual {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            border-bottom: 5px solid var(--school-blue);
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .main-visual h2 {
+            font-family: 'Gowun Dodum', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .main-visual span {
+            color: var(--school-blue);
+            position: relative;
+        }
+
+        /* 게시판 스타일 */
+        .board-container {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .board-header {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #eee;
+        }
+
+        .board-header button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background: none;
+            font-weight: bold;
+            cursor: pointer;
+            color: #777;
+        }
+
+        .board-header button.active {
+            background: white;
+            color: var(--school-blue);
+            border-bottom: 3px solid var(--school-blue);
+        }
+
+        .board-content ul {
+            list-style: none;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .board-content li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f9f9f9;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        .board-content li span {
+            font-weight: bold;
+            color: var(--school-blue);
+            margin-right: 10px;
+        }
+
+        /* 칭찬 카드 리뉴얼 */
+        .compliment-card-new {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 10px solid var(--school-orange);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .tag {
+            background: var(--school-orange);
+            color: white;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+
+        .quote-style h3 {
+            font-family: 'Gowun Dodum', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            word-break: keep-all;
+        }
+
+        .student-name {
+            color: var(--school-orange);
+            background: linear-gradient(to top, #fff3e0 40%, transparent 40%);
+        }
+
+        /* 사이드바 */
+        .side-box {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .side-box h4 {
+            margin: 0 0 15px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .side-box.orange { border-top: 5px solid var(--school-orange); }
+        .side-box.pink { border-top: 5px solid var(--school-pink); }
+        .side-box.blue { border-top: 5px solid var(--school-blue); }
+
+        .calendar-placeholder {
+            text-align: center;
+        }
+
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 10px;
+            font-size: 0.8rem;
+        }
+
+        .today {
+            background: var(--school-pink);
+            color: white;
+            border-radius: 50%;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            background: #333;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-wrapper { grid-template-columns: 1fr; }
+            .main-menu { flex-direction: column; gap: 15px; }
+        }
+    </style>
 </head>
 <body>
     <nav class="school-nav">
         <div class="container">
-            <div class="top-links">
-                <a href="#">홈</a> | <a href="#">로그인</a> | <a href="#">사이트맵</a>
-            </div>
             <div class="main-menu">
                 <a href="#" class="logo">2-9 이야기</a>
                 <ul class="nav-links">
@@ -49,25 +280,24 @@
             </div>
 
             <div class="compliment-card-new">
-                <div class="tag">👏 2-9 칭찬 주인공</div>
+                <div class="tag">👏 칭찬 주인공</div>
                 <div class="quote-style">
                     <h3>"친구를 도와준 <span class="student-name">김철수</span> 학생을 칭찬합니다!"</h3>
-                    <p>정리 정돈을 어려워하는 친구를 위해 먼저 다가가 손을 내밀어준 따뜻한 마음이 우리 9반을 더욱 행복하게 만들었어요.</p>
+                    <p>정리 정돈을 어려워하는 친구를 위해 먼저 다가가 손을 내밀어준 따뜻한 마음이 우리 반을 더욱 행복하게 만들었어요.</p>
                 </div>
-                <a href="#" class="btn-mini">나도 칭찬 남기기</a>
             </div>
         </section>
 
         <aside class="sidebar">
             <div class="side-box orange">
                 <h4>💡 알림존</h4>
-                <div class="inner-box">우리 반 약속: 경청하기</div>
+                <p>우리 반 약속: 경청하기</p>
             </div>
             
             <div class="side-box pink">
                 <h4>📅 행사일정</h4>
                 <div class="calendar-placeholder">
-                    <p>2026. 02</p>
+                    <strong>2026. 02</strong>
                     <div class="cal-grid">
                         <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
                         <span>8</span><span>9</span><span>10</span><span class="today">11</span><span>12</span><span>13</span><span>14</span>
@@ -76,7 +306,7 @@
             </div>
 
             <div class="side-box blue">
-                <h4>📞 선생님 연락처</h4>
+                <h4>📞 담임 선생님</h4>
                 <p>0508-4264-2117</p>
             </div>
         </aside>
