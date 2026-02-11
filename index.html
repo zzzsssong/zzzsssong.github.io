@@ -6,13 +6,14 @@
     <title>2-9 이야기 - 꿈이 자라나는 우리 교실</title>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS 설정 */
+        /* CSS 초기화 및 변수 설정 */
         :root {
             --school-purple: #8e44ad;
             --school-blue: #3498db;
             --school-orange: #f39c12;
             --school-pink: #e91e63;
             --bg-gray: #f4f7f9;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
         body {
@@ -24,12 +25,12 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* 네비게이션 */
+        /* 1. 상단 네비게이션 */
         .school-nav {
             background: var(--school-purple);
             padding: 15px 0;
@@ -65,50 +66,61 @@
             font-weight: 500;
         }
 
-        /* 레이아웃 구조 */
+        /* 2. 전체 레이아웃 그리드 (중요: 좌/우 분리) */
         .main-wrapper {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 25px;
+            grid-template-columns: 8fr 3.5fr; /* 8:3.5 비율로 첫 번째 이미지 느낌 재현 */
+            gap: 30px;
             margin-top: 30px;
             padding-bottom: 50px;
         }
 
-        /* 메인 비주얼 + 일러스트 */
+        /* 3. 왼쪽 콘텐츠 영역 */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* 메인 비주얼 배너 */
         .hero-banner {
             background: white;
             border-radius: 20px;
             display: flex;
             align-items: center;
             padding: 40px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            gap: 20px;
+            box-shadow: var(--shadow);
+            border-bottom: 6px solid var(--school-blue);
         }
 
-        .hero-text { flex: 1; }
+        .hero-text { flex: 1.2; }
         .hero-text h2 {
             font-family: 'Gowun Dodum', sans-serif;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             margin-bottom: 10px;
             color: #2c3e50;
         }
-
         .hero-text span { color: var(--school-blue); font-weight: bold; }
+        .hero-text p { color: #666; font-size: 1.1rem; }
+
+        .hero-img-box {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
 
         .hero-img {
-            flex: 1;
-            max-width: 400px;
+            max-width: 100%;
+            height: auto;
             border-radius: 15px;
         }
 
-        /* 공지사항 */
+        /* 알림판 (보드 스타일) */
         .board-container {
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow);
         }
 
         .board-header {
@@ -119,99 +131,136 @@
 
         .board-header button {
             flex: 1;
-            padding: 15px;
+            padding: 18px;
             border: none;
             background: none;
             font-weight: bold;
             cursor: pointer;
-            color: #777;
+            font-size: 1rem;
         }
 
         .board-header button.active {
             background: white;
             color: var(--school-blue);
-            border-bottom: 3px solid var(--school-blue);
+            border-bottom: 4px solid var(--school-blue);
         }
 
-        .board-content ul { list-style: none; padding: 20px; margin: 0; }
+        .board-content ul { list-style: none; padding: 25px; margin: 0; }
         .board-content li {
-            padding: 12px 0;
-            border-bottom: 1px solid #f9f9f9;
+            padding: 15px 0;
+            border-bottom: 1px solid #f2f2f2;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+        }
+        .board-content li span.tag {
+            color: var(--school-blue);
+            font-weight: bold;
+            margin-right: 15px;
         }
 
-        /* 칭찬 카드 */
-        .compliment-card-new {
+        /* 칭찬 주인공 */
+        .compliment-box {
             background: white;
-            padding: 30px;
+            padding: 40px;
             border-radius: 20px;
-            border-left: 10px solid var(--school-orange);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
+            border-left: 12px solid var(--school-orange);
+            box-shadow: var(--shadow);
+            position: relative;
         }
 
-        .tag {
+        .compliment-tag {
             background: var(--school-orange);
             color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
             display: inline-block;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
-        /* 우리 반의 목표 (그리드 스타일로 복구) */
-        .class-goals {
+        .compliment-text h3 {
+            font-family: 'Gowun Dodum', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            word-break: keep-all;
+        }
+
+        .compliment-text p { font-size: 1.1rem; color: #555; }
+
+        /* 우리 반의 목표 (복구된 부분) */
+        .goals-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .goals-section h3 {
+            font-family: 'Gowun Dodum', sans-serif;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            font-size: 1.5rem;
+        }
+
+        .goals-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
+            gap: 20px;
         }
 
-        .goal-card {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
+        .goal-item {
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            padding: 25px;
+            border-radius: 15px;
+            background: #fdfdfd;
             border: 1px solid #eee;
+            transition: 0.3s;
         }
 
-        .goal-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
-        .goal-card h4 { margin: 10px 0; font-size: 1rem; color: var(--school-purple); }
-        .goal-card p { font-size: 0.85rem; color: #666; margin: 0; }
+        .goal-item:hover { transform: translateY(-5px); border-color: var(--school-purple); }
+        .goal-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+        .goal-item h4 { margin: 10px 0; color: var(--school-purple); }
+        .goal-item p { font-size: 0.9rem; color: #777; margin: 0; }
 
-        /* 사이드바 */
+        /* 4. 사이드바 영역 */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
         .side-box {
             background: white;
             border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 25px;
+            box-shadow: var(--shadow);
         }
 
-        .side-box.orange { border-top: 5px solid var(--school-orange); }
-        .side-box.pink { border-top: 5px solid var(--school-pink); }
-        .side-box.blue { border-top: 5px solid var(--school-blue); }
+        .side-box.orange { border-top: 6px solid var(--school-orange); }
+        .side-box.pink { border-top: 6px solid var(--school-pink); }
+        .side-box.blue { border-top: 6px solid var(--school-blue); }
+
+        .side-box h4 { margin: 0 0 20px 0; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
 
         .cal-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            margin-top: 10px;
-            font-size: 0.8rem;
+            gap: 8px;
+            margin-top: 15px;
+            font-size: 0.9rem;
             text-align: center;
         }
+        .today { background: var(--school-pink); color: white; border-radius: 50%; width: 24px; height: 24px; line-height: 24px; display: inline-block; }
 
-        .today { background: var(--school-pink); color: white; border-radius: 50%; }
+        .footer { text-align: center; padding: 40px 0; background: #333; color: #aaa; margin-top: 50px; }
 
-        .footer { text-align: center; padding: 30px 0; background: #333; color: #999; font-size: 0.85rem; }
-
-        @media (max-width: 768px) {
+        /* 모바일 대응 */
+        @media (max-width: 992px) {
             .main-wrapper { grid-template-columns: 1fr; }
             .hero-banner { flex-direction: column; text-align: center; }
-            .class-goals { grid-template-columns: 1fr; }
+            .hero-img-box { justify-content: center; margin-top: 30px; }
         }
     </style>
 </head>
@@ -229,13 +278,16 @@
     </nav>
 
     <main class="container main-wrapper">
-        <section class="left-section">
+        <section class="content-area">
+            
             <div class="hero-banner">
                 <div class="hero-text">
                     <h2>서로 손 잡고<br>꿈을 키우는 <span>행복한 2-9</span></h2>
                     <p>우리 반의 따뜻한 이야기를 담는 공간입니다.</p>
                 </div>
-                <img src="https://img.freepik.com/free-vector/teachers-concept-illustration_114360-1638.jpg" alt="학교 생활" class="hero-img">
+                <div class="hero-img-box">
+                    <img src="https://img.freepik.com/free-vector/hand-drawn-back-school-illustration_23-2149466275.jpg" alt="학급 생활 일러스트" class="hero-img">
+                </div>
             </div>
 
             <div class="board-container">
@@ -245,17 +297,73 @@
                 </div>
                 <div class="board-content">
                     <ul>
-                        <li><span>[공지]</span> 내일 체육복과 개인 물통 챙겨오기 <small>2026.02.11</small></li>
-                        <li><span>[안내]</span> 1학기 방과후 학교 신청 안내 <small>2026.02.10</small></li>
-                        <li><span>[기타]</span> 2학년 9반 첫 학급 신문 발행 <small>2026.02.09</small></li>
+                        <li><div><span class="tag">[공지]</span> 내일 체육복과 개인 물통 챙겨오기</div> <small>2026.02.11</small></li>
+                        <li><div><span class="tag">[안내]</span> 1학기 방과후 학교 신청 안내</div> <small>2026.02.10</small></li>
+                        <li><div><span class="tag">[기타]</span> 2학년 9반 첫 학급 신문 발행</div> <small>2026.02.09</small></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="compliment-card-new">
-                <div class="tag">👏 칭찬 주인공</div>
-                <div class="quote-style">
+            <div class="compliment-box">
+                <span class="compliment-tag">👏 이번 주의 칭찬 주인공</span>
+                <div class="compliment-text">
                     <h3>"친구를 도와준 김철수 학생을 칭찬합니다!"</h3>
                     <p>정리 정돈을 어려워하는 친구를 위해 먼저 다가가 손을 내밀어준 따뜻한 마음이 우리 반을 더욱 행복하게 만들었어요.</p>
                 </div>
             </div>
+
+            <div class="goals-section">
+                <h3>🌱 우리 반의 목표</h3>
+                <div class="goals-grid">
+                    <div class="goal-item">
+                        <span class="goal-icon">🌱</span>
+                        <h4>스스로 배우기</h4>
+                        <p>자신의 생각을 소중히 여기며 배움을 실천합니다.</p>
+                    </div>
+                    <div class="goal-item">
+                        <span class="goal-icon">🤝</span>
+                        <h4>서로 돕기</h4>
+                        <p>친구의 마음을 배려하며 따뜻한 우정을 나눕니다.</p>
+                    </div>
+                    <div class="goal-item">
+                        <span class="goal-icon">✨</span>
+                        <h4>꿈 키우기</h4>
+                        <p>다양한 경험을 통해 나만의 재능을 찾습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <aside class="sidebar">
+            <div class="side-box orange">
+                <h4>💡 약속존</h4>
+                <p>지각하지 않기
+                자신이 맡은 일에 성실히 임하기
+                다른 친구를 존중하기</p>
+            </div>
+            
+            <div class="side-box pink">
+                <h4>📅 행사일정</h4>
+                <div class="calendar-placeholder">
+                    <strong style="font-size: 1.1rem;">2026. 02</strong>
+                    <div class="cal-grid">
+                        <span style="color:red">일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                        <span>8</span><span>9</span><span>10</span><span class="today">11</span><span>12</span><span>13</span><span>14</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-box blue">
+                <h4>📞 담임 선생님</h4>
+                <p style="font-size: 1.1rem; font-weight: bold; color: var(--school-blue);">0508-4264-2117</p>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 2-9 이야기. 우리 아이들의 꿈을 응원합니다.</p>
+    </footer>
+</body>
+</html>
